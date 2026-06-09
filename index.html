@@ -11,13 +11,18 @@
     
     <style>
         :root {
+            /* الألوان الأساسية */
             --bg-color: #0f172a;
             --surface-color: #1e293b;
             --primary-color: #3b82f6;
             --primary-hover: #2563eb;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --accent-color: #10b981;
+            
+            /* تدرجات الأخضر الجديدة */
+            --accent-green: #10b981;
+            --dark-green: #064e3b;
+            --darker-green: #022c22;
         }
 
         * {
@@ -39,7 +44,7 @@
         /* قسم البداية (Hero) */
         .hero {
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 80px 20px 50px;
             background: linear-gradient(180deg, rgba(30,41,59,1) 0%, rgba(15,23,42,1) 100%);
         }
 
@@ -47,7 +52,7 @@
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 10px;
-            background: linear-gradient(to left, #3b82f6, #8b5cf6);
+            background: linear-gradient(to left, #3b82f6, var(--accent-green));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -64,7 +69,7 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .btn {
@@ -105,29 +110,57 @@
             box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
         }
 
-        /* أكواد التنزيل */
+        /* تصميم قسم الداونلودر الجديد */
         .downloader-section {
-            background-color: var(--surface-color);
-            padding: 15px 25px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, var(--darker-green), var(--dark-green));
+            padding: 25px 35px;
+            border-radius: 20px;
             display: inline-block;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
         }
 
-        .downloader-section p {
-            margin: 0;
-            font-size: 0.95rem;
+        .downloader-title {
+            color: var(--accent-green);
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .codes-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .code-box {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 12px 25px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .code-box span {
+            font-size: 0.9rem;
             color: var(--text-muted);
+            font-weight: 600;
         }
 
         .code-badge {
-            background-color: rgba(255,255,255,0.1);
-            padding: 4px 10px;
-            border-radius: 6px;
-            color: var(--accent-color);
+            font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: 2px;
-            margin: 0 5px;
+            color: #fff;
+            letter-spacing: 4px;
+            text-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
         }
 
         /* قسم المميزات */
@@ -146,7 +179,7 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 25px;
         }
 
@@ -157,6 +190,20 @@
             text-align: center;
             transition: transform 0.3s ease;
             border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-green);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .feature-card:hover {
@@ -164,9 +211,13 @@
             background-color: #233147;
         }
 
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
         .feature-icon {
             font-size: 3rem;
-            color: var(--primary-color);
+            color: var(--accent-green);
             margin-bottom: 20px;
         }
 
@@ -197,7 +248,7 @@
     <!-- قسم الهيدر والتحميل -->
     <header class="hero">
         <h1>تحميل تطبيق GO TV MAX</h1>
-        <p>بوابتك لعالم الترفيه اللامحدود، حمل التطبيق الآن واستمتع!</p>
+        <p>بوابتك لعالم الترفيه المباشر، حمل التطبيق الآن واستمتع!</p>
 
         <div class="download-buttons">
             <!-- أزرار التحميل تستدعي دالة الجافاسكربت وتمرر روابط التحميل -->
@@ -210,12 +261,21 @@
             </button>
         </div>
 
+        <!-- قسم الداونلودر المُحسن -->
         <div class="downloader-section">
-            <p>أكواد التنزيل السريع (Downloader)</p>
-            <p style="margin-top: 8px;">
-                الهواتف: <span class="code-badge">123456</span> | 
-                الشاشات: <span class="code-badge">789012</span>
-            </p>
+            <div class="downloader-title">
+                <i class="fa-solid fa-cloud-arrow-down"></i> أكواد التنزيل السريع (Downloader)
+            </div>
+            <div class="codes-container">
+                <div class="code-box">
+                    <span>كود الهواتف</span>
+                    <div class="code-badge">123456</div>
+                </div>
+                <div class="code-box">
+                    <span>كود الشاشات</span>
+                    <div class="code-badge">789012</div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -237,12 +297,6 @@
             </div>
 
             <div class="feature-card">
-                <i class="fa-solid fa-film feature-icon"></i>
-                <h3>محتوى مميز ومحدث</h3>
-                <p>مكتبة ضخمة من أحدث الأفلام والمسلسلات العربية والأجنبية يتم تحديثها بشكل يومي.</p>
-            </div>
-
-            <div class="feature-card">
                 <i class="fa-solid fa-headset feature-icon"></i>
                 <h3>دعم فني متواصل</h3>
                 <p>فريقنا متواجد دائماً لحل أي مشكلة قد تواجهك لضمان أفضل تجربة استخدام.</p>
@@ -259,21 +313,17 @@
     <!-- سكربت التحميل المباشر -->
     <script>
         function startSilentDownload(fileUrl) {
-            // التحقق من وضع الرابط
             if(fileUrl.includes("رابط_ميديافاير")) {
                 alert("يرجى استبدال الرابط الوهمي برابط ميديافاير المباشر في الكود.");
                 return;
             }
 
-            // إنشاء إطار مخفي (iframe) في الصفحة
             const iframe = document.createElement('iframe');
             iframe.style.display = 'none';
-            iframe.src = fileUrl; // وضع رابط التحميل داخل الإطار المخفي
+            iframe.src = fileUrl; 
             
-            // إضافة الإطار للصفحة (سيبدأ التحميل فوراً دون مغادرة الموقع)
             document.body.appendChild(iframe);
 
-            // إزالة الإطار بعد 10 ثواني لتنظيف الكود
             setTimeout(() => {
                 document.body.removeChild(iframe);
             }, 10000);

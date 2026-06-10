@@ -21,15 +21,12 @@
 
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
 
-        /* الهيدر */
-        .hero { text-align: center; padding: 80px 20px 40px; width: 100%; max-width: 800px; }
+        .hero { text-align: center; padding: 60px 20px 40px; width: 100%; max-width: 800px; }
         .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; color: #fff; }
         .hero h2 { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 30px; font-weight: 600; }
 
-        /* حاوية الأزرار */
         .actions-container { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 500px; margin: 0 auto; }
 
-        /* الأزرار والروابط */
         .action-card {
             position: relative;
             display: flex;
@@ -60,18 +57,18 @@
             border: 1px solid var(--accent-color);
         }
 
+        /* كود الداونلودر */
+        .downloader-section { background: var(--card-bg); padding: 25px; border-radius: 16px; margin: 20px 0; border: 2px dashed var(--accent-color); text-align: center; cursor: pointer; transition: 0.3s; width: 100%; max-width: 500px; }
+        .downloader-section:hover { background: #26364e; }
+        .code-badge { color: var(--accent-color); font-size: 2rem; font-weight: 800; display: block; margin-top: 5px; }
+
         /* قسم المميزات */
-        .features-section { width: 100%; max-width: 900px; padding: 60px 20px; }
+        .features-section { width: 100%; max-width: 900px; padding: 40px 20px; }
         .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
         .feature-box { background: var(--card-bg); padding: 30px; border-radius: 20px; text-align: center; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); }
         .feature-box:hover { border-color: var(--accent-color); }
         .feature-box i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; }
-
-        /* كود الداونلودر */
-        .downloader-section { background: var(--card-bg); padding: 30px; border-radius: 20px; margin-top: 40px; border: 2px dashed var(--accent-color); text-align: center; cursor: pointer; transition: 0.3s; }
-        .downloader-section:hover { background: #26364e; }
-        .code-badge { color: var(--accent-color); font-size: 2rem; font-weight: 800; display: block; margin-top: 10px; }
 
         footer { padding: 40px; color: var(--text-muted); }
     </style>
@@ -81,6 +78,8 @@
     <header class="hero">
         <h1>GO TV MAX</h1>
         <h2>تحميل GO TV MAX</h2>
+        
+        <!-- أزرار التحميل -->
         <div class="actions-container">
             <button class="action-card" onclick="startSilentDownload('https://github.com/RahomiRaed/GOTV-App/releases/download/v1.0/GO_TV_MAX_Finall.1.apk')">
                 <i class="fa-solid fa-mobile-screen"></i>
@@ -103,6 +102,13 @@
                 <span class="version-tag">JOIN</span>
             </a>
         </div>
+
+        <!-- كود الداونلودر تحت الأزرار مباشرة -->
+        <div class="downloader-section" onclick="copyCode('1438131')">
+            <p>كود التنزيل السريع (Downloader)</p>
+            <span class="code-badge" id="code-text">1438131</span>
+            <small style="color:var(--text-muted)">اضغط على الرقم للنسخ</small>
+        </div>
     </header>
 
     <section class="features-section">
@@ -110,25 +116,19 @@
         <div class="features-grid">
             <div class="feature-box">
                 <i class="fa-solid fa-bolt"></i>
-                <h4>سريع جداً</h4>
-                <p>تصفح وتنقل بين القنوات والأفلام بسرعة فائقة دون أي تأخير.</p>
+                <h3>سريع ومستقر</h3>
+                <p>نستخدم أحدث السيرفرات العالمية لضمان تجربة مشاهدة سلسة بدون تقطيع أو تأخير.</p>
             </div>
             <div class="feature-box">
-                <i class="fa-solid fa-shield-halved"></i>
-                <h4>مستقر وآمن</h4>
-                <p>سيرفرات محمية ومستقرة تضمن لك عدم انقطاع البث نهائياً.</p>
+                <i class="fa-solid fa-layer-group"></i>
+                <h3>قنوات لا حصر لها</h3>
+                <p>آلاف القنوات العربية والعالمية، الرياضية والترفيهية بجودات متعددة تناسب جميع السرعات.</p>
             </div>
             <div class="feature-box">
-                <i class="fa-solid fa-server"></i>
-                <h4>عدة سيرفرات</h4>
-                <p>نوفر خيارات سيرفرات متعددة لتناسب قوة إنترنتك وجودة جهازك.</p>
+                <i class="fa-solid fa-headset"></i>
+                <h3>دعم فني متواصل</h3>
+                <p>فريقنا متواجد دائماً لحل أي مشكلة قد تواجهك لضمان أفضل تجربة استخدام.</p>
             </div>
-        </div>
-
-        <div class="downloader-section" onclick="copyCode('1438131')">
-            <p>كود التنزيل السريع (Downloader)</p>
-            <span class="code-badge" id="code-text">1438131</span>
-            <small style="color:var(--text-muted)">اضغط على الرقم للنسخ</small>
         </div>
     </section>
 

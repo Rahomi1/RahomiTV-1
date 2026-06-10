@@ -86,7 +86,7 @@
             transition: all 0.3s ease;
             color: white;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            text-decoration: none;
+            text-decoration: none; /* مهم جداً لإزالة الخط تحت الروابط */
         }
 
         .btn-phone {
@@ -294,13 +294,13 @@
         <p>بوابتك لعالم الترفيه المباشر، حمل التطبيق الآن واستمتع!</p>
 
         <div class="download-buttons">
-            <button class="btn btn-phone" onclick="startSilentDownload('https://github.com/RahomiRaed/GOTV-App/releases/download/v1.0/GO_TV_MAX_Finall.1.apk')">
+            <a href="https://github.com/RahomiRaed/GOTV-App/releases/download/v1.0/GO_TV_MAX_Finall.1.apk" class="btn btn-phone">
                 <i class="fa-solid fa-mobile-screen"></i> تحميل للهواتف
-            </button>
+            </a>
             
-            <button class="btn btn-tv" onclick="startSilentDownload('رابط_التحميل_المباشر_للشاشات_هنا')">
+            <a href="ضع_رابط_الشاشات_هنا_مستقبلا" class="btn btn-tv">
                 <i class="fa-solid fa-tv"></i> تحميل للشاشات
-            </button>
+            </a>
         </div>
 
         <div class="downloader-section">
@@ -362,25 +362,7 @@
     </footer>
 
     <script>
-        // دالة التحميل المباشر المخفي (بدون فتح نوافذ جديدة)
-        function startSilentDownload(fileUrl) {
-            if(fileUrl.includes("رابط_التحميل_المباشر")) {
-                alert("يرجى استبدال الرابط بالرابط المباشر الخاص بالشاشات.");
-                return;
-            }
-            
-            // إنشاء عنصر رابط مؤقت ومخفي
-            const link = document.createElement('a');
-            link.href = fileUrl;
-            link.setAttribute('download', ''); // توجيه المتصفح للتحميل المباشر
-            
-            // إضافة الرابط للصفحة، النقر عليه، ثم إزالته فوراً
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
-
-        // دالة نسخ الأكواد
+        // دالة نسخ الأكواد (فقط هي التي نحتاجها الآن)
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 showToast();

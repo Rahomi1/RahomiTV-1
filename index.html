@@ -294,11 +294,11 @@
         <p>بوابتك لعالم الترفيه المباشر، حمل التطبيق الآن واستمتع!</p>
 
         <div class="download-buttons">
-            <button class="btn btn-phone" onclick="startSilentDownload('https://www.mediafire.com/file/k3oqcatiq7qfriz/GO_TV_MAX_Finall.apk/file')">
+            <button class="btn btn-phone" onclick="startSilentDownload('https://github.com/RahomiRaed/GOTV-App/releases/download/v1.0/GO_TV_MAX_Finall.1.apk')">
                 <i class="fa-solid fa-mobile-screen"></i> تحميل للهواتف
             </button>
             
-            <button class="btn btn-tv" onclick="startSilentDownload('رابط_ميديافاير_المباشر_للشاشات_هنا')">
+            <button class="btn btn-tv" onclick="startSilentDownload('رابط_التحميل_المباشر_للشاشات_هنا')">
                 <i class="fa-solid fa-tv"></i> تحميل للشاشات
             </button>
         </div>
@@ -362,15 +362,22 @@
     </footer>
 
     <script>
-        // دالة التحميل المباشر
+        // دالة التحميل المباشر المخفي (بدون فتح نوافذ جديدة)
         function startSilentDownload(fileUrl) {
-            if(fileUrl.includes("رابط_ميديافاير")) {
-                alert("يرجى استبدال الرابط برابط ميديافاير المباشر الخاص بالشاشات.");
+            if(fileUrl.includes("رابط_التحميل_المباشر")) {
+                alert("يرجى استبدال الرابط بالرابط المباشر الخاص بالشاشات.");
                 return;
             }
             
-            // فتح الرابط في نافذة جديدة لضمان بدء التحميل من ميديافاير بدون مشاكل الـ iframe
-            window.open(fileUrl, '_blank');
+            // إنشاء عنصر رابط مؤقت ومخفي
+            const link = document.createElement('a');
+            link.href = fileUrl;
+            link.setAttribute('download', ''); // توجيه المتصفح للتحميل المباشر
+            
+            // إضافة الرابط للصفحة، النقر عليه، ثم إزالته فوراً
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         // دالة نسخ الأكواد

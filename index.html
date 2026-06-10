@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GO TV MAX | تحميل التطبيق</title>
-    <!-- استدعاء خط Cairo من جوجل -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- استدعاء مكتبة الأيقونات -->
+    <title>تحميل GO TV MAX | الموقع الرسمي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --bg-color: #0f172a;
-            --surface-color: #1e293b;
+            --card-bg: #1e293b;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
             --accent-color: #10b981;
@@ -21,115 +19,124 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
 
-        body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+        body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
 
-        .hero { text-align: center; padding: 60px 20px; width: 100%; max-width: 500px; }
-        
-        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; color: var(--accent-color); }
-        .hero p { color: var(--text-muted); margin-bottom: 30px; }
+        /* الهيدر */
+        .hero { text-align: center; padding: 80px 20px 40px; width: 100%; max-width: 800px; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; color: #fff; }
+        .hero h2 { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 30px; font-weight: 600; }
 
-        /* حاوية الأزرار الموحدة */
-        .actions-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            width: 100%;
-        }
+        /* حاوية الأزرار */
+        .actions-container { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 500px; margin: 0 auto; }
 
-        /* الكرت الموحد (للأزرار والروابط) */
+        /* الأزرار والروابط */
         .action-card {
             position: relative;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 18px 20px;
-            background: linear-gradient(135deg, var(--accent-color), var(--accent-hover));
-            border-radius: 50px;
+            padding: 18px 25px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
-            border: none;
+            transition: all 0.3s ease;
             cursor: pointer;
-            width: 100%;
+            overflow: hidden;
         }
+        .action-card:hover { border-color: var(--accent-color); transform: translateY(-3px); }
+        .action-card i { margin-left: 15px; font-size: 1.2rem; color: var(--accent-color); }
 
-        .action-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); }
-
-        /* رقم الإصدار (أقصى اليسار) */
         .version-tag {
             position: absolute;
             left: 20px;
-            font-size: 0.75rem;
-            background: rgba(0,0,0,0.2);
-            padding: 2px 8px;
-            border-radius: 10px;
-            font-family: monospace;
+            font-size: 0.7rem;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent-color);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-family: sans-serif;
+            border: 1px solid var(--accent-color);
         }
+
+        /* قسم المميزات */
+        .features-section { width: 100%; max-width: 900px; padding: 60px 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .feature-box { background: var(--card-bg); padding: 30px; border-radius: 20px; text-align: center; transition: 0.3s; border: 1px solid rgba(255,255,255,0.05); }
+        .feature-box:hover { border-color: var(--accent-color); }
+        .feature-box i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; }
 
         /* كود الداونلودر */
-        .downloader-section {
-            background-color: var(--surface-color);
-            padding: 20px;
-            border-radius: 20px;
-            margin-top: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            width: 100%;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .downloader-section:hover { background-color: #26364e; }
-        .code-badge { color: var(--accent-color); font-weight: 800; font-size: 1.5rem; display: block; margin-top: 5px; }
+        .downloader-section { background: var(--card-bg); padding: 30px; border-radius: 20px; margin-top: 40px; border: 2px dashed var(--accent-color); text-align: center; cursor: pointer; transition: 0.3s; }
+        .downloader-section:hover { background: #26364e; }
+        .code-badge { color: var(--accent-color); font-size: 2rem; font-weight: 800; display: block; margin-top: 10px; }
 
-        footer { margin-top: auto; padding: 20px; color: var(--text-muted); font-size: 0.9rem; }
+        footer { padding: 40px; color: var(--text-muted); }
     </style>
 </head>
 <body>
 
     <header class="hero">
         <h1>GO TV MAX</h1>
-        <p>بوابتك لعالم الترفيه اللامحدود</p>
-
+        <h2>تحميل GO TV MAX</h2>
         <div class="actions-container">
-            <!-- نسخة الهواتف -->
             <button class="action-card" onclick="startSilentDownload('https://github.com/RahomiRaed/GOTV-App/releases/download/v1.0/GO_TV_MAX_Finall.1.apk')">
-                <span class="version-tag">1.0.0</span>
+                <i class="fa-solid fa-mobile-screen"></i>
                 <span>نسخة الهواتف</span>
+                <span class="version-tag">v 1.0.0</span>
             </button>
-
-            <!-- نسخة الشاشات -->
             <button class="action-card" onclick="startSilentDownload('https://github.com/Rahomi1/Gotvmax_tv/releases/download/v1.0/app-release.apk')">
-                <span class="version-tag">1.0.0</span>
+                <i class="fa-solid fa-tv"></i>
                 <span>نسخة الشاشات وال TV BOX</span>
+                <span class="version-tag">v 1.0.0</span>
             </button>
-
-            <!-- المشاهدة للأيفون -->
             <a href="https://rahomi1.github.io/Rahomi.TV/" target="_blank" class="action-card">
-                <span class="version-tag">WEB</span>
+                <i class="fa-brands fa-apple"></i>
                 <span>المشاهدة للأيفون</span>
+                <span class="version-tag">WEB</span>
             </a>
-
-            <!-- التليكرام -->
             <a href="https://t.me/GOTV_RI" target="_blank" class="action-card">
-                <span class="version-tag">JOIN</span>
+                <i class="fa-brands fa-telegram"></i>
                 <span>تابعنا على التلكرام</span>
+                <span class="version-tag">JOIN</span>
             </a>
+        </div>
+    </header>
+
+    <section class="features-section">
+        <h3 class="section-title">لماذا GO TV MAX ؟</h3>
+        <div class="features-grid">
+            <div class="feature-box">
+                <i class="fa-solid fa-bolt"></i>
+                <h4>سريع جداً</h4>
+                <p>تصفح وتنقل بين القنوات والأفلام بسرعة فائقة دون أي تأخير.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h4>مستقر وآمن</h4>
+                <p>سيرفرات محمية ومستقرة تضمن لك عدم انقطاع البث نهائياً.</p>
+            </div>
+            <div class="feature-box">
+                <i class="fa-solid fa-server"></i>
+                <h4>عدة سيرفرات</h4>
+                <p>نوفر خيارات سيرفرات متعددة لتناسب قوة إنترنتك وجودة جهازك.</p>
+            </div>
         </div>
 
         <div class="downloader-section" onclick="copyCode('1438131')">
-            <p>كود التنزيل السريع (اضغط للنسخ)</p>
+            <p>كود التنزيل السريع (Downloader)</p>
             <span class="code-badge" id="code-text">1438131</span>
+            <small style="color:var(--text-muted)">اضغط على الرقم للنسخ</small>
         </div>
-    </header>
+    </section>
 
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2026 لـ GO TV MAX</p>
     </footer>
 
     <script>
-        // دالة التحميل
         function startSilentDownload(fileUrl) {
             const iframe = document.createElement('iframe');
             iframe.style.display = 'none';
@@ -138,10 +145,9 @@
             setTimeout(() => { document.body.removeChild(iframe); }, 10000);
         }
 
-        // دالة نسخ الكود
         function copyCode(code) {
             navigator.clipboard.writeText(code).then(() => {
-                alert("تم نسخ الكود: " + code);
+                alert("تم نسخ الكود بنجاح: " + code);
             });
         }
     </script>

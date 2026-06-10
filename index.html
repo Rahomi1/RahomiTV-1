@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل GO TV MAX | الموقع الرسمي</title>
+    <!-- تحسينات SEO -->
+    <title>تحميل تطبيق GO TV MAX</title>
+    <meta name="description" content="قم بتحميل GO TV MAX اخر اصدار لمشاهدة القنوات والمباريات. حمل تطبيق كو تيفي ماكس (GO TV MAX) واستمتع بمشاهدة مبارياتك المفضلة أينما كنت.">
+    <meta name="keywords" content="تحميل go tv max, go tv max اخر اصدار, تحميل كو تيفي ماكس, تطبيق go tv max, مشاهدة مباريات, go tv max للاندرويد, تحميل كو تيفي ماكس للشاشات">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -21,9 +25,21 @@
 
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
 
+        /* الهيدر والعنوان */
         .hero { text-align: center; padding: 60px 20px 40px; width: 100%; max-width: 800px; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; color: #fff; }
-        .hero h2 { font-size: 1.5rem; color: var(--accent-color); margin-bottom: 30px; font-weight: 600; }
+        
+        /* العنوان المتدرج */
+        .gradient-title {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #10b981, #34d399);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero h2 { font-size: 1.4rem; color: var(--text-main); margin-bottom: 30px; font-weight: 400; }
 
         .actions-container { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 500px; margin: 0 auto; }
 
@@ -76,19 +92,18 @@
 <body>
 
     <header class="hero">
-        <h1>GO TV MAX</h1>
-        <h2>تحميل GO TV MAX</h2>
+        <h1 class="gradient-title">GO TV MAX</h1>
+        <h2>حمل التطبيق وشاهد مبارياتك أينما كنت</h2>
         
-        <!-- أزرار التحميل -->
         <div class="actions-container">
             <button class="action-card" onclick="startSilentDownload('https://github.com/RahomiRaed/GOTV-App/releases/download/v1.0/GO_TV_MAX_Finall.1.apk')">
                 <i class="fa-solid fa-mobile-screen"></i>
-                <span>نسخة الهواتف</span>
+                <span>تحميل نسخة الهواتف</span>
                 <span class="version-tag">v 1.0.0</span>
             </button>
             <button class="action-card" onclick="startSilentDownload('https://github.com/Rahomi1/Gotvmax_tv/releases/download/v1.0/app-release.apk')">
                 <i class="fa-solid fa-tv"></i>
-                <span>نسخة الشاشات وال TV BOX</span>
+                <span>تحميل نسخة الشاشات وال TV BOX</span>
                 <span class="version-tag">v 1.0.0</span>
             </button>
             <a href="https://rahomi1.github.io/Rahomi.TV/" target="_blank" class="action-card">
@@ -103,7 +118,6 @@
             </a>
         </div>
 
-        <!-- كود الداونلودر تحت الأزرار مباشرة -->
         <div class="downloader-section" onclick="copyCode('1438131')">
             <p>كود التنزيل السريع (Downloader)</p>
             <span class="code-badge" id="code-text">1438131</span>

@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GO TV MAX | تحميل التطبيق</title>
-    <!-- استدعاء خط Cairo من جوجل -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
-    <!-- استدعاء مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -88,6 +86,7 @@
             transition: all 0.3s ease;
             color: white;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
         }
 
         .btn-phone {
@@ -147,6 +146,7 @@
             align-items: center;
             gap: 5px;
             border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
         }
 
         .code-box span {
@@ -155,12 +155,56 @@
             font-weight: 600;
         }
 
+        .code-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .code-badge {
             font-size: 1.8rem;
             font-weight: 800;
             color: #fff;
             letter-spacing: 4px;
             text-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
+        }
+
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: var(--text-main);
+            padding: 8px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent-green);
+            color: #fff;
+        }
+
+        /* رسالة منبثقة عند النسخ */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background-color: var(--accent-green);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
         }
 
         /* قسم المميزات */
@@ -245,14 +289,12 @@
 </head>
 <body>
 
-    <!-- قسم الهيدر والتحميل -->
     <header class="hero">
         <h1>تحميل تطبيق GO TV MAX</h1>
         <p>بوابتك لعالم الترفيه المباشر، حمل التطبيق الآن واستمتع!</p>
 
         <div class="download-buttons">
-            <!-- أزرار التحميل تستدعي دالة الجافاسكربت وتمرر روابط التحميل -->
-            <button class="btn btn-phone" onclick="startSilentDownload('رابط_ميديافاير_المباشر_للهواتف_هنا')">
+            <button class="btn btn-phone" onclick="startSilentDownload('https://www.mediafire.com/file/k3oqcatiq7qfriz/GO_TV_MAX_Finall.apk/file')">
                 <i class="fa-solid fa-mobile-screen"></i> تحميل للهواتف
             </button>
             
@@ -261,7 +303,6 @@
             </button>
         </div>
 
-        <!-- قسم الداونلودر المُحسن -->
         <div class="downloader-section">
             <div class="downloader-title">
                 <i class="fa-solid fa-cloud-arrow-down"></i> أكواد التنزيل السريع (Downloader)
@@ -269,17 +310,26 @@
             <div class="codes-container">
                 <div class="code-box">
                     <span>كود الهواتف</span>
-                    <div class="code-badge">123456</div>
+                    <div class="code-wrapper">
+                        <div class="code-badge" id="phoneCode">123456</div>
+                        <button class="copy-btn" onclick="copyToClipboard('123456')" title="نسخ الكود">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="code-box">
                     <span>كود الشاشات</span>
-                    <div class="code-badge">789012</div>
+                    <div class="code-wrapper">
+                        <div class="code-badge" id="tvCode">789012</div>
+                        <button class="copy-btn" onclick="copyToClipboard('789012')" title="نسخ الكود">
+                            <i class="fa-regular fa-copy"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- قسم لماذا تختار التطبيق -->
     <section class="features">
         <h2>لماذا GO TV MAX؟</h2>
         <div class="features-grid">
@@ -305,28 +355,47 @@
         </div>
     </section>
 
-    <!-- الفوتر -->
+    <div class="toast" id="toastMessage">تم نسخ الكود بنجاح!</div>
+
     <footer>
         <p>جميع الحقوق محفوظة &copy; 2026 لـ GO TV MAX</p>
     </footer>
 
-    <!-- سكربت التحميل المباشر -->
     <script>
+        // دالة التحميل المباشر
         function startSilentDownload(fileUrl) {
             if(fileUrl.includes("رابط_ميديافاير")) {
-                alert("يرجى استبدال الرابط الوهمي برابط ميديافاير المباشر في الكود.");
+                alert("يرجى استبدال الرابط برابط ميديافاير المباشر الخاص بالشاشات.");
                 return;
             }
-
-            const iframe = document.createElement('iframe');
-            iframe.style.display = 'none';
-            iframe.src = fileUrl; 
             
-            document.body.appendChild(iframe);
+            // فتح الرابط في نافذة جديدة لضمان بدء التحميل من ميديافاير بدون مشاكل الـ iframe
+            window.open(fileUrl, '_blank');
+        }
 
+        // دالة نسخ الأكواد
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast();
+            }).catch(err => {
+                // طريقة احتياطية في حال لم يدعم المتصفح الخاصية الحديثة
+                const input = document.createElement('input');
+                input.value = text;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand('copy');
+                document.body.removeChild(input);
+                showToast();
+            });
+        }
+
+        // دالة إظهار رسالة النجاح
+        function showToast() {
+            const toast = document.getElementById('toastMessage');
+            toast.classList.add('show');
             setTimeout(() => {
-                document.body.removeChild(iframe);
-            }, 10000);
+                toast.classList.remove('show');
+            }, 2500);
         }
     </script>
 </body>

@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- تحسينات SEO -->
     <title>تحميل تطبيق GO TV MAX</title>
     <meta name="description" content="قم بتحميل GO TV MAX اخر اصدار لمشاهدة القنوات والمباريات. حمل تطبيق كو تيفي ماكس (GO TV MAX) واستمتع بمشاهدة مبارياتك المفضلة أينما كنت.">
     <meta name="keywords" content="تحميل go tv max, go tv max اخر اصدار, تحميل كو تيفي ماكس, تطبيق go tv max, مشاهدة مباريات, go tv max للاندرويد, تحميل كو تيفي ماكس للشاشات">
@@ -25,28 +24,27 @@
 
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
 
-        /* الهيدر والعنوان */
         .hero { text-align: center; padding: 60px 20px 40px; width: 100%; max-width: 800px; }
         
-        /* العنوان المتدرج */
         .gradient-title {
             font-size: 4rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             background: linear-gradient(to right, #10b981, #34d399);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
 
-        .hero h2 { font-size: 1.4rem; color: var(--text-main); margin-bottom: 30px; font-weight: 400; }
+        /* نص أصغر كما طلبت */
+        .hero h2 { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; font-weight: 400; }
 
         .actions-container { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 500px; margin: 0 auto; }
 
         .action-card {
-            position: relative;
             display: flex;
             align-items: center;
+            justify-content: space-between; /* يضمن توزيع المسافات */
             padding: 18px 25px;
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.1);
@@ -56,14 +54,13 @@
             font-weight: 600;
             transition: all 0.3s ease;
             cursor: pointer;
-            overflow: hidden;
         }
         .action-card:hover { border-color: var(--accent-color); transform: translateY(-3px); }
-        .action-card i { margin-left: 15px; font-size: 1.2rem; color: var(--accent-color); }
+        
+        .card-left { display: flex; align-items: center; gap: 15px; }
+        .card-left i { color: var(--accent-color); font-size: 1.2rem; }
 
         .version-tag {
-            position: absolute;
-            left: 20px;
             font-size: 0.7rem;
             background: rgba(16, 185, 129, 0.1);
             color: var(--accent-color);
@@ -71,14 +68,14 @@
             border-radius: 8px;
             font-family: sans-serif;
             border: 1px solid var(--accent-color);
+            white-space: nowrap; /* يمنع التفاف النص */
+            margin-right: 10px;
         }
 
-        /* كود الداونلودر */
         .downloader-section { background: var(--card-bg); padding: 25px; border-radius: 16px; margin: 20px 0; border: 2px dashed var(--accent-color); text-align: center; cursor: pointer; transition: 0.3s; width: 100%; max-width: 500px; }
         .downloader-section:hover { background: #26364e; }
         .code-badge { color: var(--accent-color); font-size: 2rem; font-weight: 800; display: block; margin-top: 5px; }
 
-        /* قسم المميزات */
         .features-section { width: 100%; max-width: 900px; padding: 40px 20px; }
         .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
@@ -86,7 +83,7 @@
         .feature-box:hover { border-color: var(--accent-color); }
         .feature-box i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; }
 
-        footer { padding: 40px; color: var(--text-muted); }
+        footer { padding: 40px; color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
@@ -97,23 +94,19 @@
         
         <div class="actions-container">
             <button class="action-card" onclick="startSilentDownload('https://github.com/RahomiRaed/GOTV-App/releases/download/v1.0/GO_TV_MAX_Finall.1.apk')">
-                <i class="fa-solid fa-mobile-screen"></i>
-                <span>تحميل نسخة الهواتف</span>
+                <div class="card-left"><i class="fa-solid fa-mobile-screen"></i> <span>تحميل نسخة الهواتف</span></div>
                 <span class="version-tag">v 1.0.0</span>
             </button>
             <button class="action-card" onclick="startSilentDownload('https://github.com/Rahomi1/Gotvmax_tv/releases/download/v1.0/app-release.apk')">
-                <i class="fa-solid fa-tv"></i>
-                <span>تحميل نسخة الشاشات وال TV BOX</span>
+                <div class="card-left"><i class="fa-solid fa-tv"></i> <span>تحميل نسخة الشاشات وال TV BOX</span></div>
                 <span class="version-tag">v 1.0.0</span>
             </button>
             <a href="https://rahomi1.github.io/Rahomi.TV/" target="_blank" class="action-card">
-                <i class="fa-brands fa-apple"></i>
-                <span>المشاهدة للأيفون</span>
+                <div class="card-left"><i class="fa-brands fa-apple"></i> <span>المشاهدة للأيفون</span></div>
                 <span class="version-tag">WEB</span>
             </a>
             <a href="https://t.me/GOTV_RI" target="_blank" class="action-card">
-                <i class="fa-brands fa-telegram"></i>
-                <span>تابعنا على التلكرام</span>
+                <div class="card-left"><i class="fa-brands fa-telegram"></i> <span>تابعنا على التلكرام</span></div>
                 <span class="version-tag">JOIN</span>
             </a>
         </div>
@@ -147,7 +140,7 @@
     </section>
 
     <footer>
-        <p>جميع الحقوق محفوظة &copy; 2026 لـ GO TV MAX</p>
+        <p>GO TV MAX</p>
     </footer>
 
     <script>

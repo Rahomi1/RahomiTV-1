@@ -17,10 +17,10 @@
     
     <style>
         :root {
-            /* تدرج خلفية احترافي وعميق (توهج علوي يتلاشى إلى السواد المطلق) */
+            /* تدرج خلفية احترافي وعميق */
             --bg-gradient: radial-gradient(circle at top, #062b17 0%, #010b06 50%, #000000 100%); 
             
-            /* لون الأخضر الداكن الصافي المأخوذ مباشرة من هوية اللوجو الخاص بك */
+            /* لون الأخضر الداكن الصافي من هوية اللوجو */
             --card-bg: #042112; 
             
             --text-main: #ffffff; 
@@ -64,11 +64,12 @@
             font-weight: 800;
             margin-top: 0px;
             margin-bottom: 5px;
-            /* تدرج لوني يعكس فخامة الأخضر الغامق والفاتح للوجو */
-            background: linear-gradient(to right, #047857, #10b981);
+            /* تعديل النص ليصبح أخضر داكن مع تأثير إضاءة نيون قوي ومضيء */
+            background: linear-gradient(to right, #042112, #059669);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
+            filter: drop-shadow(0 0 12px rgba(16, 185, 129, 0.8)) drop-shadow(0 0 30px rgba(5, 150, 105, 0.4));
         }
 
         .hero h2 { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; font-weight: 400; }
@@ -81,7 +82,7 @@
             justify-content: space-between;
             padding: 18px 25px;
             background: var(--card-bg);
-            border: 1px solid rgba(16, 185, 129, 0.25); /* إطار ناعم بلون اللوجو */
+            border: 1px solid rgba(16, 185, 129, 0.25); 
             border-radius: 16px;
             color: white;
             text-decoration: none;

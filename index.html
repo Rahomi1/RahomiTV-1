@@ -25,7 +25,7 @@
             
             --text-main: #ffffff; 
             --text-muted: #94a3b8; 
-            --accent-color: #10b981; /* الأخضر المضيء للأيقونات والتحديد */
+            --accent-color: #10b981; /* الأخضر الطبيعي للأيقونات والتحديد */
             --accent-hover: #059669; 
         }
 
@@ -64,13 +64,9 @@
             font-weight: 800;
             margin-top: 0px;
             margin-bottom: 5px;
-            /* نص بلون أخضر ساطع جداً وواضح ليعطي تأثير الإضاءة الحقيقي */
-            background: linear-gradient(to right, #2ecc71, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            /* لون أخضر عادي، صريح وواضح بدون أي فلاتر أو نيون */
+            color: #10b981;
             display: inline-block;
-            /* تأثير توهج نيون مكثف وقوي يبرز الكلمة بشكل خارق */
-            filter: drop-shadow(0 0 8px #10b981) drop-shadow(0 0 20px rgba(16, 185, 129, 0.6));
         }
 
         .hero h2 { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; font-weight: 400; }

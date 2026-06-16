@@ -7,6 +7,9 @@
     <meta name="description" content="قم بتحميل GO TV MAX اخر اصدار لمشاهدة القنوات والمباريات. حمل تطبيق كو تيفي ماكس (GO TV MAX) واستمتع بمشاهدة مبارياتك المفضلة أينما كنت.">
     <meta name="keywords" content="تحميل go tv max, go tv max اخر اصدار, تحميل كو تيفي ماكس, تطبيق go tv max, مشاهدة مباريات, go tv max للاندرويد, تحميل كو تيفي ماكس للشاشات">
     
+    <!-- أيقونة الموقع (الفافيكون) -->
+    <link rel="icon" href="https://h.top4top.io/p_3819ygv1a0.png" type="image/png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -24,8 +27,22 @@
 
         body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
 
-        .hero { text-align: center; padding: 60px 20px 40px; width: 100%; max-width: 800px; }
+        .hero { text-align: center; padding: 40px 20px; width: 100%; max-width: 800px; }
         
+        /* حاوية الشعار للتحكم بالمحاذاة لليسار */
+        .logo-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start; /* محاذاة لأقصى اليسار */
+            margin-bottom: 10px;
+        }
+        
+        .top-logo {
+            width: 50px; /* حجم صغير للشعار */
+            height: auto;
+            border-radius: 10px; /* انحناء بسيط اختياري */
+        }
+
         .gradient-title {
             font-size: 4rem;
             font-weight: 800;
@@ -36,7 +53,6 @@
             display: inline-block;
         }
 
-        /* نص أصغر كما طلبت */
         .hero h2 { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 30px; font-weight: 400; }
 
         .actions-container { display: flex; flex-direction: column; gap: 15px; width: 100%; max-width: 500px; margin: 0 auto; }
@@ -44,7 +60,7 @@
         .action-card {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* يضمن توزيع المسافات */
+            justify-content: space-between;
             padding: 18px 25px;
             background: var(--card-bg);
             border: 1px solid rgba(255,255,255,0.1);
@@ -68,7 +84,7 @@
             border-radius: 8px;
             font-family: sans-serif;
             border: 1px solid var(--accent-color);
-            white-space: nowrap; /* يمنع التفاف النص */
+            white-space: nowrap;
             margin-right: 10px;
         }
 
@@ -83,16 +99,22 @@
         .feature-box:hover { border-color: var(--accent-color); }
         .feature-box i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 15px; }
 
-        footer { padding: 40px; color: var(--text-muted); font-size: 0.9rem; }
+        footer { padding: 40px; color: var(--text-muted); font-size: 0.9rem; text-align: center; width: 100%;}
     </style>
 </head>
 <body>
 
     <header class="hero">
+        <!-- حاوية الشعار الجديد فوق العنوان وعلى اليسار -->
+        <div class="logo-wrapper">
+            <img src="https://h.top4top.io/p_3819ygv1a0.png" alt="Logo" class="top-logo">
+        </div>
+        
         <h1 class="gradient-title">GO TV MAX</h1>
         <h2>حمل التطبيق وشاهد مبارياتك أينما كنت</h2>
         
         <div class="actions-container">
+            <!-- الروابط كما هي -->
             <button class="action-card" onclick="startSilentDownload('https://github.com/Rahomi1/Rahomi.TV/releases/download/1.0.1v/GO_TV_MAX_1.0.1v.1.apk')">
                 <div class="card-left"><i class="fa-solid fa-mobile-screen"></i> <span>تحميل نسخة الهواتف</span></div>
                 <span class="version-tag">v 1.0.1</span>
@@ -140,15 +162,17 @@
     </section>
 
     <footer>
-        <p>GO TV MAX</p>
+        <p>GO TV MAX © 2024</p>
     </footer>
 
     <script>
         function startSilentDownload(fileUrl) {
+            // إنشاء عنصر iframe مخفي لبدء التحميل
             const iframe = document.createElement('iframe');
             iframe.style.display = 'none';
             iframe.src = fileUrl; 
             document.body.appendChild(iframe);
+            // حذف العنصر بعد وقت قصير للحفاظ على نظافة الصفحة
             setTimeout(() => { document.body.removeChild(iframe); }, 10000);
         }
 
